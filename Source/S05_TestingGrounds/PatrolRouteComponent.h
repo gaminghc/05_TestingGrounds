@@ -16,6 +16,7 @@ class S05_TESTINGGROUNDS_API UPatrolRouteComponent : public UActorComponent
 	TArray<AActor*> PatrolPoints;
 
 public:
+	UFUNCTION(BlueprintCallable)
 	TArray<AActor*> GetPatrolPoints() const;
 		
 	
