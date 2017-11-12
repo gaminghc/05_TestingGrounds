@@ -17,5 +17,6 @@ class S05_TESTINGGROUNDS_API APatrollingGuard : public ATP_ThirdPersonCharacter
 	UPROPERTY(EditAnywhere, Category = "Setup")
 	TArray<AActor*> PatrolPoints;
 	
-	
+public:
+	TArray<AActor*> GetPatrolPoints();
 };
