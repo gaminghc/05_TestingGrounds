@@ -25,8 +25,14 @@ class AS05_TestingGroundsCharacter : public ACharacter
 public:
 	AS05_TestingGroundsCharacter();
 
+	/** Gun class to spawn */
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	TSubclassOf<class AGun> GunBlueprint;
+
 protected:
 	virtual void BeginPlay();
+
+	AGun* Gun;
 
 public:
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
