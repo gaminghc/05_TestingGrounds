@@ -66,7 +66,7 @@ void AGun::Tick(float DeltaTime)
 
 }
 
-void AGun::OnFire()
+void AGun::Fire()
 {
 	// try and fire a projectile
 	if (ProjectileClass != NULL)

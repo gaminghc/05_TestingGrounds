@@ -58,12 +58,12 @@ public:
 	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	//class UMotionControllerComponent* L_MotionController;
 
+	/** Fires a projectile. */
+	void Fire();
+
 protected:
 	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
-	/** Fires a projectile. */
-	void OnFire();
+	virtual void BeginPlay() override;	
 
 public:	
 	// Called every frame

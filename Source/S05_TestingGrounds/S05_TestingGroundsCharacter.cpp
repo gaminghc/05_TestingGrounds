@@ -57,6 +57,7 @@ void AS05_TestingGroundsCharacter::BeginPlay()
 	}
 	Gun = GetWorld()->SpawnActor<AGun>(GunBlueprint);
 	Gun->AttachToComponent(Mesh1P, FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("GripPoint"));
+	Gun->AnimInstance = Mesh1P->GetAnimInstance();
 
 	// Show or hide the two versions of the gun based on whether or not we're using motion controllers.
 	//if (bUsingMotionControllers)
@@ -84,8 +85,7 @@ void AS05_TestingGroundsCharacter::SetupPlayerInputComponent(class UInputCompone
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 	// Bind fire event
-	// TODO
-	//PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AS05_TestingGroundsCharacter::OnFire);
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AS05_TestingGroundsCharacter::OnFire);
 
 	// Enable touchscreen input
 	EnableTouchscreenMovement(PlayerInputComponent);
@@ -130,7 +130,7 @@ void AS05_TestingGroundsCharacter::EndTouch(const ETouchIndex::Type FingerIndex,
 	}
 	if ((FingerIndex == TouchItem.FingerIndex) && (TouchItem.bMoved == false))
 	{
-		//OnFire();
+		OnFire();
 	}
 	TouchItem.bIsPressed = false;
 }
@@ -216,4 +216,9 @@ bool AS05_TestingGroundsCharacter::EnableTouchscreenMovement(class UInputCompone
 	}
 	
 	return false;
+}
+
+void AS05_TestingGroundsCharacter::OnFire()
+{
+	Gun->Fire();
 }
