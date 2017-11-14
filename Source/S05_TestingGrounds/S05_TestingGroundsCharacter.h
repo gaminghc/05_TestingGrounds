@@ -97,6 +97,7 @@ protected:
 	bool EnableTouchscreenMovement(UInputComponent* InputComponent);
 
 	/** Fires a projectile. */
+	UFUNCTION(BlueprintCallable, Category = "Shooting")
 	void OnFire();
 
 public:
