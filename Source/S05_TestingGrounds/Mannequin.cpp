@@ -57,9 +57,12 @@ void AMannequin::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+	// Bind fire event
+	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &AMannequin::PullTrigger);
+
 }
 
-void AMannequin::Fire()
+void AMannequin::PullTrigger()
 {
 	Gun->Fire();
 }
